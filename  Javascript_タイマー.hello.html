@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>sample</title>
+  <style>
+    body {
+      background-color:aqua;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="TO"></h1>
+
+  <script type="text/javascript">
+    function timeout(due){
+      let now = new Date();
+      const Rest = due.getTime()-now.getTime();
+      const Sec = Math.floor(Rest/1000)%60;
+      const Min = Math.floor(Rest/1000/60)%60;
+      const Hou = Math.floor(Rest/1000/60/60)%24;
+      const Get = [Sec,Min,Hou];
+      return Get;
+      }
+    let get = new Date();
+    get.setSeconds(00);
+    get.setMinutes(00);
+    get.setHours(18);
+
+    function Returns(){
+    const Win = timeout(get);
+    const Ans = `18時までの残り時間${Win[2]}時間${Win[1]}分${Win[0]}秒です`
+    document.getElementById('TO').textContent = Ans;
+    return rep();
+  }
+
+    function rep(){
+      setTimeout(Returns,1000);
+    }
+    Returns();
+
+    
+
+
+  </script>
+</body>
